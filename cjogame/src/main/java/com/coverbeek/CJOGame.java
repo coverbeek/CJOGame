@@ -20,6 +20,22 @@ public class CJOGame extends JPanel {
         ourGameBoard = new Board();
     }
 
+    public static void main(String[] args) throws InterruptedException {
+        JFrame frame = new JFrame("Sample Frame");
+        CJOGame game = new CJOGame();
+        frame.add(game);
+        frame.setSize(500, 500);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        boolean gameNotDone = true;
+
+        while (gameNotDone) {
+            game.repaint();
+            Thread.sleep(500);
+        }
+    }
+    
+    
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -79,20 +95,5 @@ public class CJOGame extends JPanel {
         Color curColor = Color.BLACK;
         g2d.setColor(curColor);
         g2d.fillOval(x, y, 15,15);
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        JFrame frame = new JFrame("Sample Frame");
-        CJOGame game = new CJOGame();
-        frame.add(game);
-        frame.setSize(500, 500);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        boolean gameNotDone = true;
-
-        while (gameNotDone) {
-            game.repaint();
-            Thread.sleep(500);
-        }
     }
 }
