@@ -29,6 +29,10 @@ public class CJOGame extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         boolean gameNotDone = true;
 
+        Solver bruteForce = new Solver(game.ourGameBoard);
+        bruteForce.findSolution();
+
+
         while (gameNotDone) {
             game.repaint();
             Thread.sleep(500);
@@ -43,8 +47,8 @@ public class CJOGame extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
             RenderingHints.VALUE_ANTIALIAS_ON);
 
-        drawEmptyHole(g2d, x, y);
-        drawFullHole(g2d, x, y);
+        //drawEmptyHole(g2d, x, y);
+        //drawFullHole(g2d, x, y);
         drawWholeBoard(g2d);
     }
 
@@ -60,7 +64,7 @@ public class CJOGame extends JPanel {
 
         for (int iterY = 0; iterY  < 7; iterY++ ) {
             for (int iterX = 0; iterX  < 7; iterX++ ) {
-                oneHole = this.ourGameBoard.holeArray[iterX][iterY];
+                oneHole = this.ourGameBoard.m_holeArray[iterX][iterY];
                 if (oneHole.getIsValid()){
                     // calculate offset based on location
                     xLoc = (iterX * sizeOfSpace) + sizeOfHoleOffset;

@@ -13,4 +13,8 @@ public class Move {
         endingX = -1;
         endingY = -1;
     }
+
+    public String ToString() {
+        return ("\tStarting [" + startingX + "][" + startingY + "]\n\tEnding  ["+ endingX + "][" + endingY + "]\n");
+    }
 }
